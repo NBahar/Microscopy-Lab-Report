@@ -1,0 +1,161 @@
+% --------------------------------------------------------------
+% Nuruddin Bahar
+% 2373100B
+% ENG 5289 : Microscopy & Optics
+% Tutorial 2
+% Due : 25th Oct 2018 ----------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{hyperref,caption,amsmath,amsthm,amssymb,siunitx,graphicx,chemmacros,tikz,pgfmath}
+\usetikzlibrary{backgrounds,snakes,decorations.pathmorphing}
+\usepackage[lastexercise]{exercise}
+
+ \tikzset{
+arrowMe/.style={postaction=decorate,
+    decoration={markings, mark=at position .5 with {\arrow[thick]{#1}}
+    } }}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+  
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+%\renewcommand{\qedsymbol}{\filledbox}
+ 
+\title{ENG 5289 : Microscopy \& Optics \\ Tutorial 2}%replace X with the appropriate number
+\author{Nuruddin Bahar (2373100B)\\ \small MSc(Biomedical Engineering) \\  %replace with your name
+} %if necessary, replace with your course title
+ 
+\maketitle
+
+\begin{Exercise}
+\noindent \textbf{(a) Describe the steps involved in the fluorescence process and illustrate them using a Jablonski Diagram. State a property of a fluorescence probe that is associated with each step.\\
+(b) List two important characteristics of an ideal fluorophore.\\
+(c) Define what is Stoke’s shift. Illustrate with a diagram.\\
+(d) What is fluorescence photobleaching? Give a method that can reduce the occurrence of photobleaching.\\}
+\end{Exercise}
+\begin{Answer}
+\noindent \textbf{(a)} Fluorescence is the emission of light by a substance that has absorbed light or other electromagnetic radiation \cite{FL}. The substance, called \textbf{fluorophore}, is a molecule that can absorb light over a range of specific wavelengths called its \textbf{absorption (or excitation) spectrum} and emit light over another range of specific wavelengths called its \textbf{emission spectrum}. Every fluorophore has its unique excitation and emission spectrum.
+
+In fluorescence, electromagnetic radiation in the form of light at one wavelength is absorbed and is then re-emitted at a longer wavelength. Since energy is lost in the system, a shorter wavelength light (higher energy) like UV or blue will get converted to a longer wavelength (lower energy) light, like green, yellow, orange or red. The process of fluorescence is show as Jablonski diagram in \autoref{fig:JablonskiDiagram}.
+
+\noindent \underline{\textit{Steps of fluorescence process}}
+\begin{itemize}
+\setlength\itemsep{0.1em}
+\item Photon 1 hits molecule and gets absorbed (\textbf{absorption of photon})
+\item Electron at ground level gains energy and jumps to higher level (\textbf{excitation})
+\item Electron loses some of that energy (\textbf{internal conversion})
+\item Electron jumps back down to ground level and emits Photon 2 (\textbf{fluorescence})
+\item Photon 2 has less energy, corresponding to a different color (wavelength of light) (\textbf{emission})
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[framed, decoration=snake,scale=0.9]
+\draw [->,>=Latex, very thick,snake=snake,line after snake=2mm,blue] (-1.0,2) -- (1,0);
+\node[blue] at (-1.30,1)  {\textbf{Photon 1}};
+\draw [very thick](0,0) -- (15,0);
+\node[] at (-0.5,0)  {\textbf{S$_0$}};
+\node[] at (7.5,-0.5)  {\textbf{Electronic ground state}};
+\node[rotate=90] at (-1,4)  {\textbf{Energy}};
+\draw [->,>=Latex] (-1,5) -- (-1,6);
+\draw [->,>=Latex,blue, very thick] (1,0) -- (1,7);
+\node[blue] at (1.5,3)  {\textbf{A}};
+\draw [->,>=Latex,green, very thick] (3,5) -- (3,0);
+\node[green] at (3.5,3)  {\textbf{F}};
+\draw [->,>=Latex, very thick,snake=snake,line after snake=2mm,green] (3,0) -- (4.5,2);
+\node[green] at (5.05,1)  {\textbf{Photon 2}};
+\draw [->,>=Latex,red, very thick] (10,2) -- (10,0);
+\node[red] at (10.5,1)  {\textbf{P}};
+\draw [very thick](0,10) -- (5,10);
+\node[] at (-0.5,10)  {\textbf{S$_n$}};
+\draw (0,8.75) -- (5,8.75)(0,8.5) -- (5,8.5)(0,8.1) -- (5,8.1)(0,7.6) -- (5,7.6);
+\draw (0,6.15) -- (5,6.15)(0,5.9) -- (5,5.9)(0,5.5) -- (5,5.5);
+\draw [very thick](0,7) -- (5,7);
+\node[] at (-0.5,7)  {\textbf{S$_2$}};
+\draw [very thick](0,5) -- (5,5);
+\node[] at (-0.5,5)  {\textbf{S$_1$}};
+\draw [->,>=Latex, very thick,snake=snake,line after snake=2mm] (3.5,7.6) -- (3.5,5);
+\draw [->,>=Latex, very thick,snake=snake,line after snake=2mm] (5,5) -- (9,3.5);
+\node[] at (4.25,6.5){\textbf{IC}};
+\node[] at (6.25,3.75)  {\textbf{ISC}};
+\draw [very thick](9,3.5) -- (13,3.5)(9,2) -- (13,2);
+\node[] at (13.5,2)  {\textbf{T$_1$}};
+\node[] at (13.5,3.5)  {\textbf{T$_2$}};
+\node[] at (10.25,2.75)  {\textbf{IC}};
+\draw [->,>=Latex, very thick,snake=snake,line after snake=2mm] (11,3.5) -- (11,2);
+\node[] at (9,10)  {\textbf{Excited vibrational states}};
+\draw [->,>=Latex] (7.5,9.75) -- (5,8.1);
+\draw [very thick](8.5,9) -- (15.5,9) -- (15.5,5.5) -- (8.5,5.5) -- (8.5,9);
+\node[] at (11.5,8.75)  {\textbf{A = photon absorption}};
+\node[] at (12,8.25)  {\textbf{F = fluorescence (emission)}};
+\node[] at (11.35,7.75)  {\textbf{P = phosphorescence}};
+\node[] at (10.9,7.25)  {\textbf{S = singlet state}};
+\node[] at (10.9,6.75)  {\textbf{T = triplet state}};
+\node[] at (11.75,6.25)  {\textbf{IC = internal conversion}};
+\node[] at (12,5.75)  {\textbf{ISC = inter-system crossing}};
+\end{tikzpicture}
+\captionof{figure}{Jablonski Diagram depicting fluorescence and associated processes.}
+\label{fig:JablonskiDiagram}
+\end{center}
+
+
+\end{Answer}
+ \pagebreak
+\begin{Exercise}
+\noindent \textbf{(a) In a diagnostic application, three different fluorescence probes are required to label a biological cell. Choose a suitable combination from the following dyes.}
+\includegraphics[scale=0.5]{fig1.png}
+\noindent \textbf{(b) Describe the differences between transmission optical microscopy and epifluorescence microscopy. Illustrate it using a diagram.}
+\end{Exercise}
+\hfill
+\begin{Answer}
+
+\end{Answer}
+\hfill
+\pagebreak
+\begin{Exercise}
+\noindent \textbf{(a) Describe why an image obtained with conventional epifluorescence microscope contains 3D information? Illustrate it using a diagram.\\
+(b) Give two differences between 3D imaging using two photon excitation and confocal scanning microscopy.\\
+(c) Using ray diagrams, describe how a three dimmensional image of a tissue slice can be obtained using optical microscopy.}
+\end{Exercise}
+\hfill
+\begin{Answer}
+
+\end{Answer}
+\pagebreak
+\begin{Exercise}
+\noindent \textbf{(a) State an important characteristic that distinguish fluorescence quenching from fluorescence photobleaching.\\
+(b) Fluorescence resonance energy transfer (FRET) is a distance-dependent interaction between the electronic excited states of two dye molecules.\\
+(i) State the conditions necessary for FRET to occur and illustrate your answer with spectra of the donor and accepter dye molecules.\\
+(ii) Calculate the FRET transfer efficiency when the donor and accepter
+are separated by 0.1 R0 (Forster distance) and 5 R0 distance. \\
+(iii) Give an example of suitable applications of FRET.}
+\end{Exercise}
+\hfill
+\begin{Answer}
+
+
+\end{Answer}
+\pagebreak
+\begin{Exercise}
+\noindent \textbf{(a) A waveguide is made from glass. From Snell’s law, calculate the critical angle (θc) above which an evanescent field can be propagated. The refractive indices of glass and water are 1.63 and 1.33 respectively.\\
+(b) Calculate how far the evanescent field can extend when 600 nm wavelength light reflects from the surface at θ=80o \\
+(c) Describe the factors that determine the measured thickness of the detection layer.\\
+(d) Describe the progress of using evanescent waveguide as a sensor to detect DNA-DNA binding.}
+\end{Exercise}
+\hfill
+\begin{Answer}
+
+\end{Answer}
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+\bibliographystyle{abbrv}
+\bibliography{tutorial1}
+\end{document}
